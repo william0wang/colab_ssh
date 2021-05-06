@@ -14,7 +14,7 @@ server_port = < frp port >
 log_file = ./frpc.log
 log_level = warn
 log_max_days = 3
-token = < frp server token >
+privilege_token = < frp server token >
 
 [google_colab_ssh_23333]
 type = tcp
