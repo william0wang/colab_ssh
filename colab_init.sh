@@ -12,7 +12,8 @@ usermod -aG sudo colab
 
 # configure ssh
 echo "### configuring ssh"
-apt-get -qq install ssh
+apt-get -qq update
+apt-get -qq install ssh net-tools tmux mosh byobu screen
 mkdir -p /home/colab/.ssh
 mv authorized_keys /home/colab/.ssh/authorized_keys
 echo "PermitRootLogin no" >> /etc/ssh/sshd_config
@@ -27,7 +28,6 @@ service ssh restart
 # download frp
 echo "### downloading frp"
 frp_version=0.36.2
-
 wget -q --show-progress -c https://github.com/fatedier/frp/releases/download/v${frp_version}/frp_${frp_version}_linux_amd64.tar.gz
 tar xzf frp_${frp_version}_linux_amd64.tar.gz -C /opt/
 mv /opt/frp_${frp_version}_linux_amd64 /opt/frp
@@ -35,12 +35,5 @@ mv frpc.ini /opt/frp/frpc.ini
 chmod -R 755 /opt/frp
 echo "### start frp"
 nohup /opt/frp/frpc -c /opt/frp/frpc.ini &
-
-# install packages
-echo "### installing packages"
-apt-get -qq update
-# apt install -qq -o=Dpkg::Use-Pty=0 openssh-server pwgen
-apt-get -qq install net-tools tmux mosh byobu
-# echo y | unminimize
 
 echo "### done"
