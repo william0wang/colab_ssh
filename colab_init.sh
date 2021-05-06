@@ -26,9 +26,11 @@ service ssh restart
 
 # download frp
 echo "### downloading frp"
-wget -q --show-progress -c https://github.com/fatedier/frp/releases/download/v0.36.2/frp_0.36.2_linux_amd64.tar.gz
-tar xzf frp_0.33.0_linux_amd64.tar.gz -C /opt/
-mv /opt/frp_0.33.0_linux_amd64 /opt/frp
+frp_version=0.36.2
+
+wget -q --show-progress -c https://github.com/fatedier/frp/releases/download/v${frp_version}/frp_${frp_version}_linux_amd64.tar.gz
+tar xzf frp_${frp_version}_linux_amd64.tar.gz -C /opt/
+mv /opt/frp_${frp_version}_linux_amd64 /opt/frp
 mv frpc.ini /opt/frp/frpc.ini
 chmod -R 755 /opt/frp
 echo "### start frp"
