@@ -35,6 +35,6 @@ with open("authorized_keys", "w") as f:
 
 # download init script
 print "### get init script and run"
-! wget -q --show-progress -c https://raw.githubusercontent.com/SykieChen/google_colab_ssh/master/colab_init.sh
+! wget -q --show-progress -c https://raw.githubusercontent.com/william0wang/colab_ssh/master/colab_init.sh
 ! bash colab_init.sh < your user password >
 ```
