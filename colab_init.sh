@@ -29,5 +29,7 @@ chmod -R 755 /opt/frp
 echo "### start frp"
 killall frpc
 nohup /opt/frp/frpc -c /opt/frp/frpc.ini &
+rm -f frp_${frp_version}_linux_amd64.tar.gz
+rm -f colab_init.sh
 
 echo "### done"
