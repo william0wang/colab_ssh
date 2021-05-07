@@ -9,7 +9,7 @@ apt-get -qq update
 apt-get -qq install ssh net-tools tmux mosh byobu screen vim
 mkdir -p /root/.ssh
 mv authorized_keys /root/.ssh/authorized_keys
-echo "PermitRootLogin no" >> /etc/ssh/sshd_config
+echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
 echo "Port 23333" >> /etc/ssh/sshd_config
 echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
