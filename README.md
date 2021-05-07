@@ -24,10 +24,11 @@ with open("frpc.ini", "w") as f:
 
 # ssh keys
 print("### writing ssh keys")
+! mkdir -p /root/.ssh
 keys = '''
 < ssh public keys >
 '''
-with open("authorized_keys", "w") as f:
+with open("/root/.ssh/authorized_keys", "w") as f:
     f.write(keys)
 
 # download init script
