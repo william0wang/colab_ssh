@@ -40,7 +40,7 @@ echo "### start frp"
 killall frpc
 nohup /opt/frp/frpc -c /opt/frp/frpc.ini &
 rm -f frp_${frp_version}_linux_amd64.tar.gz
-rm -f Miniconda3-latest-Linux-x86.sh
+rm -f $MINICONDA_INSTALLER_SCRIPT
 rm -f colab_init.sh
 
 echo "### done"
