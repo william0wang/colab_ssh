@@ -19,11 +19,14 @@ echo "AuthorizedKeysFile %h/.ssh/authorized_keys" >> /etc/ssh/sshd_config
 service ssh restart
 
 echo "### install conda3"
+pip install --upgrade pip
 MINICONDA_INSTALLER_SCRIPT=Miniconda3-latest-Linux-x86.sh
 MINICONDA_PREFIX=/usr/local
 wget https://repo.anaconda.com/miniconda/$MINICONDA_INSTALLER_SCRIPT
 chmod +x $MINICONDA_INSTALLER_SCRIPT
 ./$MINICONDA_INSTALLER_SCRIPT -b -f -p $MINICONDA_PREFIX
+conda update -y conda
+conda clean --index-cache
 
 # download frp
 echo "### downloading frp"
