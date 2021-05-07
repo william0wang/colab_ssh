@@ -27,6 +27,7 @@ chmod +x $MINICONDA_INSTALLER_SCRIPT
 ./$MINICONDA_INSTALLER_SCRIPT -b -f -p $MINICONDA_PREFIX
 conda update -y -n base -c defaults conda
 conda clean --index-cache
+conda init bash
 
 # download frp
 echo "### downloading frp"
