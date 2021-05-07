@@ -18,6 +18,13 @@ echo "AuthorizedKeysFile %h/.ssh/authorized_keys" >> /etc/ssh/sshd_config
 # echo "export LD_LIBRARY_PATH" >> /root/.bashrc
 service ssh restart
 
+echo "### install conda3"
+MINICONDA_INSTALLER_SCRIPT=Miniconda3-latest-Linux-x86.sh
+MINICONDA_PREFIX=/usr/local
+wget https://repo.anaconda.com/miniconda/$MINICONDA_INSTALLER_SCRIPT
+chmod +x $MINICONDA_INSTALLER_SCRIPT
+./$MINICONDA_INSTALLER_SCRIPT -b -f -p $MINICONDA_PREFIX
+
 # download frp
 echo "### downloading frp"
 frp_version=0.36.2
