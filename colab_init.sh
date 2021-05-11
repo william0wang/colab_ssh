@@ -29,9 +29,6 @@ conda update -y -n base -c defaults conda
 conda clean --index-cache
 conda init bash
 
-wget wget https://github.com/nihui/srmd-ncnn-vulkan/releases/download/20210210/srmd-ncnn-vulkan-20210210-ubuntu.zip
-unzip srmd-ncnn-vulkan-20210210-ubuntu.zip
-
 # download frp
 echo "### downloading frp"
 frp_version=0.36.2
@@ -45,7 +42,6 @@ killall frpc
 nohup /opt/frp/frpc -c /opt/frp/frpc.ini &
 rm -f frp_${frp_version}_linux_amd64.tar.gz
 rm -f $MINICONDA_INSTALLER_SCRIPT
-rm -rf srmd-ncnn-vulkan-20210210-ubuntu.zip
 rm -f colab_init.sh
 
 echo "### done"
