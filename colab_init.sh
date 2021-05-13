@@ -5,8 +5,9 @@
 
 # configure ssh
 echo "### configuring ssh"
+add-apt-repository ppa:jonathonf/ffmpeg-4
 apt-get -qq update
-apt-get -qq install ssh net-tools tmux mosh byobu screen vim libvulkan-dev
+apt-get -qq install ssh net-tools tmux mosh byobu screen vim ffmpeg
 chmod 700 /root/.ssh
 chmod 600 /root/.ssh/authorized_keys
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
