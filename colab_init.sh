@@ -40,7 +40,7 @@ mv frpc.ini /opt/frp/frpc.ini
 chmod -R 755 /opt/frp
 echo "### start frp"
 killall frpc
-nohup /opt/frp/frpc -c /opt/frp/frpc.ini &
+screen -dmS frpc /opt/frp/frpc -c /opt/frp/frpc.ini
 rm -f frp_${frp_version}_linux_amd64.tar.gz
 rm -f $MINICONDA_INSTALLER_SCRIPT
 rm -f colab_init.sh
