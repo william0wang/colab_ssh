@@ -19,17 +19,6 @@ echo "AuthorizedKeysFile %h/.ssh/authorized_keys" >> /etc/ssh/sshd_config
 # echo "export LD_LIBRARY_PATH" >> /root/.bashrc
 service ssh restart
 
-echo "### install conda3"
-pip install --upgrade pip
-MINICONDA_INSTALLER_SCRIPT=Miniconda3-py37_4.9.2-Linux-x86_64.sh
-MINICONDA_PREFIX=/usr/local
-wget https://repo.anaconda.com/miniconda/$MINICONDA_INSTALLER_SCRIPT
-chmod +x $MINICONDA_INSTALLER_SCRIPT
-./$MINICONDA_INSTALLER_SCRIPT -b -f -p $MINICONDA_PREFIX
-conda update -y -n base -c defaults conda
-conda clean --index-cache
-conda init bash
-
 # download frp
 echo "### downloading frp"
 frp_version=0.36.2
@@ -42,7 +31,19 @@ echo "### start frp"
 killall frpc
 screen -dmS frpc /opt/frp/frpc -c /opt/frp/frpc.ini
 rm -f frp_${frp_version}_linux_amd64.tar.gz
+
+echo "### install conda3"
+pip install --upgrade pip
+MINICONDA_INSTALLER_SCRIPT=Miniconda3-py37_4.9.2-Linux-x86_64.sh
+MINICONDA_PREFIX=/usr/local
+wget https://repo.anaconda.com/miniconda/$MINICONDA_INSTALLER_SCRIPT
+chmod +x $MINICONDA_INSTALLER_SCRIPT
+./$MINICONDA_INSTALLER_SCRIPT -b -f -p $MINICONDA_PREFIX
+conda update -y -n base -c defaults conda
+conda clean --index-cache
+conda init bash
 rm -f $MINICONDA_INSTALLER_SCRIPT
+
 rm -f colab_init.sh
 
 echo "### done"
